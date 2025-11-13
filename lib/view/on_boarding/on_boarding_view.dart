@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/common_widget/on_boardig_page.dart';
+import 'package:upwards2/view/login/signup_view.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -87,8 +88,8 @@ List pageArr =[
                 decoration: BoxDecoration(color: TColor.primaryColor1,borderRadius: BorderRadius.circular(35)),
                 child: IconButton(icon: Icon(Icons.navigate_next,color: TColor.white), onPressed: (){
                   if(selectPage<4){
-                    selectPage=selectPage+1;
-                    
+                    selectPage=selectPage+1;  //41.38 min
+                    controller.animateToPage(selectPage, duration:const Duration(microseconds: 600), curve: Curves.bounceInOut);
                   controller.jumpToPage(selectPage);
                   setState(() {
                     
@@ -99,6 +100,7 @@ List pageArr =[
                   {
                   
                   print("Open welcome screen");
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const SignupView()));
                   
                   }
                 }, ),

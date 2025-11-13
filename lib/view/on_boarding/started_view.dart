@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:upwards2/common/colo_extension.dart';
+import 'package:upwards2/common_widget/round_button.dart';
+import 'package:upwards2/view/on_boarding/on_boarding_view.dart';
 
 class StartedView extends StatefulWidget {
   const StartedView({super.key});
@@ -9,6 +11,7 @@ class StartedView extends StatefulWidget {
 }
 
 class _StartedViewState extends State<StartedView> {
+ bool  isChangeColor =false ;
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
@@ -16,14 +19,13 @@ class _StartedViewState extends State<StartedView> {
       backgroundColor: TColor.white,
       body: Container(
         width: media.width,
-        decoration: BoxDecoration(gradient: LinearGradient(
+        decoration: BoxDecoration(
+          gradient: isChangeColor ?  LinearGradient(
           colors: TColor.primaryGrad,
           begin: Alignment.topLeft,
-          end: Alignment.bottomRight),
+          end: Alignment.bottomRight): null,
           ),
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
+          child: 
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -42,18 +44,29 @@ class _StartedViewState extends State<StartedView> {
                    )
                    ,const Spacer(),
 
-                     MaterialButton(onPressed: (){
-
-                     }, child: Text("Get Started",style:  TextStyle(
-                  color:TColor.grey,
-                   fontSize: 16,
-                   fontWeight: FontWeight.w700
-                   )),)   
-
-              ],)
-            ],
-          ),
-      ),
-    );
+                     SafeArea(
+                       child: Padding(
+                         padding: const EdgeInsets.symmetric(horizontal: 20),
+                         child: RoundButton
+                         (title: "Get Started",
+                         type: isChangeColor ? RoundButtonType.textGradient: RoundButtonType.bgGradient ,
+                          onPressed: () {
+                            if(isChangeColor)
+                            {
+                              //go to next screen
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> const OnBoardingView()));
+                            } 
+                            else {
+                              setState(() {
+                                isChangeColor = true;
+                              });
+                            }
+                          }),
+                     ) ,
+                     )  
+              ],
+              )),
+      );
+    
   }
 }
