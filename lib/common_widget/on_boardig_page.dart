@@ -10,7 +10,7 @@ class OnBoardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var media  = MediaQuery.of(context).size;
     return SizedBox(
-      width: media.width * 0.1,
+      width: media.width,
       height: media.height,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -22,7 +22,7 @@ class OnBoardingPage extends StatelessWidget {
             fit: BoxFit.fitWidth,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 100),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Text(
               pObj["title"].toString(),
               style: TextStyle(
@@ -39,7 +39,7 @@ class OnBoardingPage extends StatelessWidget {
               style: TextStyle(
                   color: TColor.grey,
                   fontSize: 18,
-                  fontWeight: FontWeight.w700),
+                  fontWeight: FontWeight.w500),
             ),
           ),
         ],

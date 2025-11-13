@@ -45,14 +45,23 @@ List pageArr =[
     var media = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: TColor.white,
-      body: Stack(children: [
+      body: Stack(
+        alignment: Alignment.bottomRight,
+        children: [
         PageView.builder(
           controller: controller,
           itemCount: pageArr.length,
           itemBuilder: (context, index) {
             var pObj = pageArr[index] as Map? ?? {};
           return OnBoardingPage(pObj: pObj);
-        },)
+        },),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 25),
+          width: 60,
+          height: 60,
+          decoration: BoxDecoration(color: TColor.primaryColor1,borderRadius: BorderRadius.circular(35)),
+          child: IconButton(icon: Icon(Icons.navigate_next,color: TColor.white), onPressed: (){}, ),
+        )
       ],),
     );
   }
