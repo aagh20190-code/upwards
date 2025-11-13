@@ -27,11 +27,29 @@ class _StartedViewState extends State<StartedView> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const Spacer(),
                 Text("Upwards",
                 style: TextStyle(
                   color:TColor.black,
                    fontSize: 36,
-                     fontWeight:FontWeight.w800),)
+                     fontWeight:FontWeight.w800),),
+
+                     Text("Track your life progress",
+                style: TextStyle(
+                  color:TColor.grey,
+                   fontSize: 18
+                   ),
+                   )
+                   ,const Spacer(),
+
+                     MaterialButton(onPressed: (){
+
+                     }, child: Text("Get Started",style:  TextStyle(
+                  color:TColor.grey,
+                   fontSize: 16,
+                   fontWeight: FontWeight.w700
+                   )),)   
+
               ],)
             ],
           ),
