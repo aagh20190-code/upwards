@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/view/on_boarding/on_boarding_view.dart';
+import 'package:upwards2/view/on_boarding/started_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,9 +32,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        primaryColor: TColor.primaryColor1
+        primaryColor: TColor.primaryColor1,
+        fontFamily: "Poppins"
       ),
-      home: const OnBoardingView(),
+      home: const StartedView(),
     );
   }
 }

@@ -77,7 +77,7 @@ List pageArr =[
                 height: 70,
                 child: CircularProgressIndicator(
                   color: TColor.primaryColor1,
-                  value: selectPage/5,
+                  value: (selectPage + 1) / 5,
                   strokeWidth: 2,),
               ),
               Container(
@@ -88,6 +88,7 @@ List pageArr =[
                 child: IconButton(icon: Icon(Icons.navigate_next,color: TColor.white), onPressed: (){
                   if(selectPage<4){
                     selectPage=selectPage+1;
+                    
                   controller.jumpToPage(selectPage);
                   setState(() {
                     
