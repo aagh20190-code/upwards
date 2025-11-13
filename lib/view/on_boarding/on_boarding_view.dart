@@ -10,8 +10,18 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
-
+var selectPage=0;
 PageController controller =PageController();
+@override
+void initState() {
+  super.initState();
+  controller.addListener(() {
+    selectPage = controller.page?.round()?? 0;
+    setState(() {
+      
+    });
+  });
+}
 List pageArr =[
   {
     "title":"Track Your Goals",
@@ -55,12 +65,46 @@ List pageArr =[
             var pObj = pageArr[index] as Map? ?? {};
           return OnBoardingPage(pObj: pObj);
         },),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 25),
-          width: 60,
-          height: 60,
-          decoration: BoxDecoration(color: TColor.primaryColor1,borderRadius: BorderRadius.circular(35)),
-          child: IconButton(icon: Icon(Icons.navigate_next,color: TColor.white), onPressed: (){}, ),
+        //this is our new changes 
+        SizedBox(
+          width: 120,
+          height: 120,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+                   SizedBox(
+                width: 70,
+                height: 70,
+                child: CircularProgressIndicator(
+                  color: TColor.primaryColor1,
+                  value: selectPage/5,
+                  strokeWidth: 2,),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 25),
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(color: TColor.primaryColor1,borderRadius: BorderRadius.circular(35)),
+                child: IconButton(icon: Icon(Icons.navigate_next,color: TColor.white), onPressed: (){
+                  if(selectPage<4){
+                    selectPage=selectPage+1;
+                  controller.jumpToPage(selectPage);
+                  setState(() {
+                    
+                  });
+              
+                  } else
+                  
+                  {
+                  
+                  print("Open welcome screen");
+                  
+                  }
+                }, ),
+              ),
+         
+            ],
+          ),
         )
       ],),
     );
