@@ -4,7 +4,7 @@ This project is created for the fulfilment of SDP-1 course, in this project we t
 Hey! this is me **Aniket Anik** and My team members:<br> <br>
 1.Samiya Saif Chowdhury<br>
 2.Sweety Akter <br>
-3.Aisiful Isalm<br>
+3.Asiful Islam<br>
 4.Kazi Mortuza Ahmed<br> 
 
 Along with my team we are building this app.<br>
@@ -14,8 +14,8 @@ Along with my team we are building this app.<br>
 Let's talk about this app, So I think many of sometimes tried to track our progess or our growth in a certain topic,
 after few days of tracking we lost our data or somehwo discontinue the process and we lost the tracking of our improvement.
 So me and my team came up with this idea that, lets do something for this. Let's build something that can help us to keep track of our data.
-So we came up with **UPWARDS** an app that keep track of your habits, like sleeping, physical exercise, study time , and food consumption.
-**What we can do with this app:**<br>
+So we came up with **UPWARDS** an app that keep track of your habits, like sleeping, physical exercise, study time , and food consumption. <br>
+## What we can do with this app: <br>
 1.Track Sleeping <br>
 2.Track calorie burn in exercise<br>
 3.Track Study Hour<br>
