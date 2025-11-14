@@ -1,7 +1,7 @@
 # upwards2
 
 This project is created for the fulfilment of SDP-1 course, in this project we tried to build build an app from scrach. 
-Hey! this is me Aniket Anik and My team members:  
+Hey! this is me Aniket Anik and My team members: \n 
 1.Samiya Saif Chowdhury
 2.Sweety Akter 
 3.Aisiful Isalm
