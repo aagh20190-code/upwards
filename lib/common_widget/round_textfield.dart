@@ -1,30 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:upwards2/common/colo_extension.dart';
 
-class RoundTextfield extends StatelessWidget {
+class RoundTextFeild extends StatelessWidget {
   final TextEditingController? controller;
+  final TextInputType? keyboardType;
+  final bool obscureText;
+  final Widget? rightIcon;
   final String hintText;
   final String icon;
-  
-  const RoundTextfield({super.key, this.controller, required this.hintText, required this.icon });
+  final EdgeInsets? margin;
+  const RoundTextFeild({super.key, this.controller, required this.hintText, required this.icon, this.margin, this.keyboardType,this.obscureText=false,this.rightIcon});
 
   @override
   Widget build(BuildContext context) {
     return  Container(
-                decoration: BoxDecoration(color: TColor.lightGrey,borderRadius: BorderRadius.circular(15)),
-                child:TextField(decoration: InputDecoration(
+      margin: margin,
+                decoration: BoxDecoration(
+                  color: TColor.lightGrey,
+                  borderRadius: BorderRadius.circular(15)),
+                child:TextField(
+                  controller: controller,
+                  keyboardType: keyboardType,
+                  obscureText: obscureText,
+                  decoration: InputDecoration(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
-                  hintText: "First Name",
+                  hintText: hintText,
+                  suffixIcon: rightIcon,
                   prefixIcon: Container(
-                    width: 15,
-                    height: 15,
+                    width: 20,
+                    height: 20,
                     alignment: Alignment.center,
                   child: Image.asset(
-                    "assets/img/user.png",
-                    height: 15,
-                    width: 15,
+                    icon,
+                    height: 20,
+                    width: 20,
                     fit: BoxFit.contain,
                     color: TColor.grey,)),
                   hintStyle: TextStyle(color: TColor.grey,fontSize: 14),

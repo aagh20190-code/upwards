@@ -6,7 +6,11 @@ class RoundButton extends StatelessWidget {
   final String title;
   final RoundButtonType type;
   final VoidCallback onPressed;
-  const RoundButton({super.key,required this.title,this.type= RoundButtonType.textGradient, required this.onPressed});
+  const RoundButton({
+    super.key,
+    required this.title,
+    this.type= RoundButtonType.bgGradient,
+    required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
