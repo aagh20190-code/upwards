@@ -1,6 +1,6 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart' hide CarouselController;
+import 'package:flutter/material.dart';// <-- Make sure 'hide' is here
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/common_widget/round_button.dart';
 
@@ -13,7 +13,14 @@ class WhatyourgoalView extends StatefulWidget {
 
 class _WhatyourgoalViewState extends State<WhatyourgoalView> {
 
-  CarouselController buttonCarouselController = CarouselController();
+  CarouselSliderController buttonCarouselController = CarouselSliderController();
+
+  List goalArr =  [
+    {"image":"assets/img/sign2.png","title":"Improve Shape","subtitle":"I have a low amount of body fat\nand need / want to build more\nmuscle"},
+    {"image":"assets/img/sign3.png","title":"Learn & Grow","subtitle":"I’m “skinny fat”. look thin but have\nno shape. I want to add learn\nmuscle in the right way"},
+    {"image":"assets/img/sign4.png","title":"Lose Fat","subtitle":"I have over 20 lbs to\nlose. I want to drop all this fat and gain muscle\nmass"},
+               
+                ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +31,61 @@ class _WhatyourgoalViewState extends State<WhatyourgoalView> {
       Stack(
         children: [
           Center(
-            child: CarouselSlider(
-              items: ["assets/img/sign1.png","assets/img/sign2.png","assets/img/sign3.png"].map((gObject)=>Container(color: Colors.amber,)).toList(),
+            child:CarouselSlider(
+              items:goalArr
+                .map((gObj)=>Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: TColor.primaryGrad,
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight),
+              borderRadius: BorderRadius.circular(25),
+              ),
+              padding:  EdgeInsets.symmetric(vertical: media.width*0.1,horizontal: 25),
+              alignment: Alignment.center,
+              child: FittedBox(
+                child: Column(
+                  children: [
+                    Image.asset(
+                      gObj["image"].toString(),
+                      width:media.width*0.5,
+                      fit: BoxFit.fitWidth,),
+
+                    SizedBox(
+                      height: media.width*0.1,
+                    ),
+                    Text(
+                   gObj["title"].toString(),
+                    style: TextStyle(color: TColor.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700),
+                    ),
+                       Container(
+                        width: media.width*0.1,
+                        height: 1,
+                        color: TColor.white,
+                       ),
+                       SizedBox(
+                      height: media.width*0.02,
+                    ),
+
+                    Text(
+                    gObj["subtitle"].toString(),
+                      textAlign: TextAlign.center,
+                    style: TextStyle(color: TColor.white,
+                    fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
+              ),)
+              .toList(),
               carouselController: buttonCarouselController,
-              options: CarouselOptions(
+              options:CarouselOptions(
                 autoPlay: false,
                 enlargeCenterPage: true,
-                viewportFraction: 0.9,
-                aspectRatio: 0.75,
+                viewportFraction: 0.7,
+                aspectRatio: 0.74,
                 initialPage: 0,
               ),
             ),
