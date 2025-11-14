@@ -11,7 +11,10 @@ class Completeprofileview extends StatefulWidget {
 }
 
 class _CompleteprofileviewState extends State<Completeprofileview> {
-  TextEditingController txtDate = TextEditingController() ;
+  TextEditingController txtDate = TextEditingController();
+  TextEditingController txtWeight = TextEditingController();
+  TextEditingController txtHeight = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
@@ -56,24 +59,46 @@ class _CompleteprofileviewState extends State<Completeprofileview> {
                   color: TColor.lightGrey,
                   borderRadius: BorderRadius.circular(15)),
                 child:
-                DropdownButtonHideUnderline(
-                  child: DropdownButton(
-                    items: ["Male","Female"].map((name)=>DropdownMenuItem(
-                      value: name,
-                      child: Text(name,
-                                style: TextStyle(
-                                  color: TColor.grey,
-                                  fontSize: 16),
-                                  ),
-                                  )).toList(),
-                                  onChanged: (value){},
-                                  hint: Text(
-                                    "Chose Gender",
-                                style: TextStyle(
-                                  color: TColor.grey,
-                                  fontSize: 16),
-                                  ),),
-                )),
+                Row(
+                  children: [
+                     Container(
+                    width: 50,
+                    height: 50,
+                     padding: const EdgeInsets.symmetric(horizontal: 15),
+                    alignment: Alignment.center,
+                  child: Image.asset(
+                    "assets/img/gender.png",
+                    height: 20,
+                    width: 20,
+                   
+                    fit: BoxFit.contain,
+                    color: TColor.grey,)),
+            
+                    Expanded(
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          items: ["Male","Female"].map((name)=>DropdownMenuItem(
+                            value: name,
+                            child: Text(name,
+                                      style: TextStyle(
+                                        color: TColor.grey,
+                                        fontSize: 16),
+                                        ),
+                                        )).toList(),
+                                        onChanged: (value){},
+                                        isExpanded: true,
+                                      
+                                        hint: Text(
+                                          "Chose Gender",
+                                      style: TextStyle(
+                                        color: TColor.grey,
+                                        fontSize: 14),
+                                        ),),
+                      ),
+                    ),
+                   const SizedBox(width: 15,),
+                  ],
+                ),),
 
                 SizedBox(height: media.width*0.04,),
 
@@ -89,7 +114,7 @@ class _CompleteprofileviewState extends State<Completeprofileview> {
                           children: [
                              Expanded(
                                child: RoundTextFeild(
-                               controller: txtDate,
+                               controller: txtWeight,
                                hintText: "Your Weight",
                                icon: "assets/img/weight.png",              
                                                          ),
@@ -119,7 +144,7 @@ class _CompleteprofileviewState extends State<Completeprofileview> {
                           children: [
                              Expanded(
                                child: RoundTextFeild(
-                               controller: txtDate,
+                               controller: txtHeight,
                                hintText: "Your Height",
                                icon: "assets/img/height.png",              
                                                          ),
