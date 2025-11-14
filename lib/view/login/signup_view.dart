@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/common_widget/round_button.dart';
 import 'package:upwards2/common_widget/round_textfield.dart';
+import 'package:upwards2/view/login/completeProfileView.dart';
 
 class SignupView extends StatefulWidget {
   const SignupView({super.key});
@@ -109,7 +110,9 @@ class _SignupViewState extends State<SignupView> {
                   height: media.width*0.4,
                 ),
                 
-                RoundButton(title: "Register", onPressed: (){},),
+                RoundButton(title: "Register", onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>const Completeprofileview(),));
+                },),
 
                 SizedBox(
                   height: media.width*0.04,
