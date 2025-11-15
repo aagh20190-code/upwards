@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/common_widget/round_button.dart';
 import 'package:upwards2/common_widget/round_textfield.dart';
+import 'package:upwards2/view/login/Welcome_view.dart';
+import 'package:upwards2/view/login/whatyourgoal_view.dart';
 
 class Completeprofileview extends StatefulWidget {
   const Completeprofileview({super.key});
@@ -172,7 +174,7 @@ class _CompleteprofileviewState extends State<Completeprofileview> {
                 RoundButton(title: "Next >", 
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(
-                    builder: (context) =>const Completeprofileview(),));
+                    builder: (context) =>const WelcomeView(),));
                       },),
                      ],
                    ),

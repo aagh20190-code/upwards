@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/view/login/completeProfileView.dart';
+import 'package:upwards2/view/login/Welcome_view.dart';
+import 'package:upwards2/view/login/login_view.dart';
 import 'package:upwards2/view/login/signup_view.dart';
 import 'package:upwards2/view/login/whatyourgoal_view.dart';
 import 'package:upwards2/view/on_boarding/on_boarding_view.dart';
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
         primaryColor: TColor.primaryColor1,
         fontFamily: "Poppins"
       ),
-      home: const WhatyourgoalView(),
+      home: const LoginView(),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';// <-- Make sure 'hide' is here
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/common_widget/round_button.dart';
+import 'package:upwards2/view/login/Welcome_view.dart';
 
 class WhatyourgoalView extends StatefulWidget {
   const WhatyourgoalView({super.key});
@@ -57,7 +58,7 @@ class _WhatyourgoalViewState extends State<WhatyourgoalView> {
                     Text(
                    gObj["title"].toString(),
                     style: TextStyle(color: TColor.white,
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w700),
                     ),
                        Container(
@@ -121,7 +122,7 @@ class _WhatyourgoalViewState extends State<WhatyourgoalView> {
                   RoundButton(title: "Confirm", 
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(
-                    builder: (context) =>const WhatyourgoalView(),));
+                    builder: (context) =>const WelcomeView(),));
                       },),
               ],
             ),
