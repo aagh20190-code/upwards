@@ -97,12 +97,12 @@ class _SignupViewState extends State<SignupView> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
-                      child: Expanded(child: Text(
+                      child:  Text(
                                       "By continuing you accept our Privacy Policy and\nTerm of Use",
                                       style: TextStyle(color: TColor.grey,
                                       fontSize: 10),
                                       ),
-                                      ),
+                                      
                     )
                 
                 ],
@@ -184,8 +184,12 @@ class _SignupViewState extends State<SignupView> {
                 ),
                 
                 TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) =>const LoginView(),));
-                }, child: Row(
+                  Navigator.push(
+                    context, MaterialPageRoute(
+                      builder: (context) =>const LoginView(),));
+                }, 
+                
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                   Text(

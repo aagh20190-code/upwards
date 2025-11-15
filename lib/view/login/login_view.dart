@@ -22,7 +22,7 @@ class _LoginViewState extends State<LoginView> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            height: media.height,
+            height: media.height*0.9,
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,7 +30,7 @@ class _LoginViewState extends State<LoginView> {
                 Text(
                 "Hey there",
                 style: TextStyle(color: TColor.grey,
-                fontSize: 18),
+                fontSize: 16),
                 ),
             
                 Text(
@@ -42,21 +42,11 @@ class _LoginViewState extends State<LoginView> {
                 SizedBox(
                   height: media.width*0.05,
                 ),
-              //  const RoundTextFeild(
-              //   hintText: "First Name",
-              //   icon: "assets/img/user.png"),
 
-              //    SizedBox(
-              //     height: media.width*0.04,
-              //   ),
-
-              //    const RoundTextFeild(
-              //   hintText: "Last Name",
-              //   icon: "assets/img/user.png"),
-
-              //    SizedBox(
-              //     height: media.width*0.04,
-              //   ),
+                SizedBox(
+                  height: media.width*0.04,
+                  ),
+              
 
                  const RoundTextFeild(
                 hintText: "Email",
@@ -72,10 +62,13 @@ class _LoginViewState extends State<LoginView> {
                 hintText: "Password",
                 icon: "assets/img/Lock.png",
                 obscureText: true,
-                rightIcon: TextButton(onPressed: (){}, child: Container(
+                rightIcon: TextButton(
+                  onPressed: (){},
+                child:
+                Container(
+                    alignment: Alignment.center,
                     width: 20,
                     height: 20,
-                    alignment: Alignment.center,
                   child: Image.asset(
                    "assets/img/hidepass.png",
                     height: 20,
@@ -83,30 +76,31 @@ class _LoginViewState extends State<LoginView> {
                     fit: BoxFit.contain,
                     color: TColor.grey,))),
                 ),
+                  SizedBox(
+                    height: media.width*0.02,),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.center,
                    children: [
-                     SizedBox(
-                  height: media.width*0.1,
-                ),
-                    
-                     Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Expanded(child: Text(
-                                      "Forgot Password?",
-                                      style: TextStyle(color: TColor.grey,
-                                      fontSize: 14,decoration: TextDecoration.underline),
-                                      ),
-                                      ),
-                    )
+                    Text(
+                           "Forgot Password?",
+                            style: TextStyle(
+                              color: TColor.grey,
+                            fontSize: 10,
+                            decoration: TextDecoration.underline),
+                          ),
+                          ],
+                          ),
+                 const Spacer(),
                 
-                ],
-                ),
-                 Spacer(),
-                
-                RoundButton(title: "Login", onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) =>const Completeprofileview(),));
-                },),
+                RoundButton(
+                  title: "Login",
+                  onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                      const Completeprofileview()));
+                }),
 
                 SizedBox(
                   height: media.width*0.04,
@@ -126,12 +120,15 @@ class _LoginViewState extends State<LoginView> {
                     Expanded(
                         child: Container(
                           height: 1,
-                          color: TColor.grey.withOpacity(0.5),)),
+                          color: TColor.grey.withOpacity(0.5),
+                          )),
                   ],
                 ),
+
                 SizedBox(
                   height: media.width*0.04,
                 ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -142,15 +139,18 @@ class _LoginViewState extends State<LoginView> {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                    color: TColor.white,
-                   border: Border.all(width: 1,
-                  color: TColor.grey.withOpacity(0.4),
+                   border: Border.all(
+                    width: 1,
+                    color: TColor.grey.withOpacity(0.4),
                  ),
-                  borderRadius: BorderRadius.circular(15),),
+                  borderRadius: BorderRadius.circular(15),
+                  ),
                   child: Image.asset("assets/img/google.png",
                   width: 20,
-                  height: 20,) 
-                 ,)
-                 ,),
+                  height: 20,
+                  ),
+                  ),
+                  ),
                  SizedBox(
                   width: media.width*0.04,
                 ),
@@ -165,38 +165,48 @@ class _LoginViewState extends State<LoginView> {
                    border: Border.all(width: 1,
                   color: TColor.grey.withOpacity(0.4),
                  ),
-                  borderRadius: BorderRadius.circular(15),),
+                  borderRadius: BorderRadius.circular(15),
+                  
+                  ),
                   child: Image.asset("assets/img/facebook.png",
                   width: 20,
-                  height: 20,) 
-                 ,)
-                 ,)
-                ],),
+                  height: 20,
+                  ),
+                  ),
+                 )
+                ],
+              ),
                 SizedBox(
-                  height: media.width*0.05,
+                  height: media.width*0.04,
                 ),
                 
                 TextButton(onPressed: (){
-                  Navigator.pop(
-                    context);
-                }, child: Row(
+                  Navigator.pop(context);
+                }, 
+
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                   Text(
                     "Don't have an account Yet? ",
-                style: TextStyle(color: TColor.black,fontSize: 14),
+                 style: TextStyle(
+                  color: TColor.black,
+                  fontSize: 14),
                 ),
+
                  Text(
                     "Register",
                 style: TextStyle(color: TColor.black,fontSize: 14,fontWeight: FontWeight.w700),
                 )
-                ],) ,),
+                ],
+                ),
+                ),
 
                 SizedBox(
                   height: media.width*0.04,
-                ),
-              ],
-            ),
+             ),
+            ],
+           ),
           ),
         ),
       ),
