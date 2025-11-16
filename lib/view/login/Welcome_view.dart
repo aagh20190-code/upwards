@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/common_widget/round_button.dart';
+import 'package:upwards2/view/main_tab/main_tab_view.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
@@ -55,7 +56,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                 RoundButton(title: "Go To Home", 
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(
-                    builder: (context) =>const WelcomeView(),));
+                    builder: (context) =>const MainTabView(),));
                       },),
 
             ],
