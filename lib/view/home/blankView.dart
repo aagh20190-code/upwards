@@ -13,6 +13,8 @@ class _BlankviewState extends State<Blankview> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: TColor.white,
+      
+      body:Center( child: Text("PAGE IS UNDER DEVELOPMENT\nPLEASE WAIT!",style: TextStyle(color: TColor.grey,fontWeight: FontWeight.w700,fontSize: 18),),)
     );
   }
 }
