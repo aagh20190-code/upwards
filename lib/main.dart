@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:upwards2/common/colo_extension.dart';
+import 'package:upwards2/view/home/home_view.dart';
 import 'package:upwards2/view/login/completeProfileView.dart';
 import 'package:upwards2/view/login/Welcome_view.dart';
 import 'package:upwards2/view/login/login_view.dart';
