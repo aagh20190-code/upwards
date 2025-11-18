@@ -1,3 +1,4 @@
+import 'package:dotted_dashed_line/dotted_dashed_line.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
@@ -54,6 +55,13 @@ class _HomeViewState extends State<HomeView> {
 
         
       ];
+
+      List waterArr =[  {"title":"6am - 8am","subtitle":"600ml"},
+                           {"title":"9am - 11am","subtitle":"500ml"},
+                            {"title":"11am - 2pm","subtitle":"1000ml"},
+                             {"title":"2pm - 4pm","subtitle":"700ml"},
+                              {"title":"4pm - now","subtitle":"900ml"}
+                     ];
 
   @override
   Widget build(BuildContext context) {
@@ -426,17 +434,17 @@ class _HomeViewState extends State<HomeView> {
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter),
             ),
-            const SizedBox(width: 15,),
+            const SizedBox(width: 10),
 
             Expanded(child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                  Text(
-                                          "Water Intake",
-                                          style: TextStyle(color: TColor.black,
-                                          fontSize: 12 ,
-                                          fontWeight: FontWeight.w700),
-                                          ),
+                    "Water Intake",
+                       style: TextStyle(color: TColor.black,
+                          fontSize: 12 ,
+                              fontWeight: FontWeight.w700),
+                                ),
                        
                                  ShaderMask(
                                 blendMode: BlendMode.srcIn,
@@ -456,8 +464,81 @@ class _HomeViewState extends State<HomeView> {
                                       ),
                                   ), 
 
+                                  const SizedBox(height: 10),
+                                   Text(
+                    "Real time updates",
+                       style: TextStyle(color: TColor.grey,
+                          fontSize: 12 ,
+                              ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: waterArr.map((wObj){
+                                    var isLast = wObj == waterArr.last;
+                                    return Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            margin:const EdgeInsets.symmetric(vertical: 4),
+                                            width: 10,
+                                            height: 10,
+                                            decoration: BoxDecoration(
+                                              color: TColor.secondaryColor1.withOpacity(0.5),
+                                              borderRadius: BorderRadius.circular(5)
+                                            ),
+                                          ),
+                                          if(!isLast)
+                                           DottedDashedLine(
+                                            height: media.width*0.08,
+                                             width: 0,
+                                              axis: Axis.vertical,
+                                              dashColor: TColor.secondaryColor1.withOpacity(0.5),)
+                                        ],
+                                        ),
+
+                                        const SizedBox(width: 10),
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                           Text(
+                    wObj["title"].toString(),
+                       style: TextStyle(color: TColor.grey,
+                          fontSize: 10,
+                              ),
+                                ),
+
+                                ShaderMask(
+                                blendMode: BlendMode.srcIn,
+                                shaderCallback: (bounds) {
+                                 return LinearGradient(
+                                  colors: TColor.secondaryGrad, 
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight)
+                                  .createShader(Rect.fromLTRB(0, 0, bounds.width, bounds.height));
+                                },
+                                child:
+                                        Text(
+                                          wObj["subtitle"].toString(),
+                                          style: TextStyle(color: TColor.black.withOpacity(0.7),
+                                          fontSize: 12, 
+                                          ),
+                                      ),
+                                  ), 
+
+                                        ],
+                                      )
+                                    ],);
+                                  }).toList()
+                                )
+
               ],
-            ))
+            ),
+            ),
                         ],
                       ),
                     ),
@@ -471,22 +552,92 @@ class _HomeViewState extends State<HomeView> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
+                          width: double.maxFinite,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 25,
+                            horizontal: 20),
                       height: media.width*0.45,
                       decoration: BoxDecoration(
                         color: Colors.white,borderRadius: BorderRadius.circular(25),boxShadow: const [
                           BoxShadow(color: Colors.black12,blurRadius: 2)
                         ]
                       ),
+                       child:  Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children:[
+                                    Text(
+                    "Sleep",
+                       style: TextStyle(color: TColor.black,
+                          fontSize: 12 ,
+                              fontWeight: FontWeight.w700),
+                                ),
+                       
+                                 ShaderMask(
+                                blendMode: BlendMode.srcIn,
+                                shaderCallback: (bounds) {
+                                 return LinearGradient(
+                                  colors: TColor.primaryGrad, 
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight)
+                                  .createShader(Rect.fromLTRB(0, 0, bounds.width, bounds.height));
+                                },
+                                child:
+                                        Text(
+                                          "8h",
+                                          style: TextStyle(color: TColor.black.withOpacity(0.7),
+                                          fontSize: 12, 
+                                          fontWeight: FontWeight.w700),
+                                      ),
+                                  ), 
+
+                                  ,
+                                  Image.asset("assets/img/Sleep-Graph.png",
+                                  width: double.maxFinite,
+                                  fit: BoxFit.fitWidth), 
+                                  ]),
                     ),
                      SizedBox(height: media.width*0.05,),
 
-                    Container(
+                     Container(
+                          width: double.maxFinite,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 25,
+                            horizontal: 20),
                       height: media.width*0.45,
                       decoration: BoxDecoration(
                         color: Colors.white,borderRadius: BorderRadius.circular(25),boxShadow: const [
                           BoxShadow(color: Colors.black12,blurRadius: 2)
                         ]
                       ),
+                       child:  Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children:[
+                                    Text(
+                    "Calories",
+                       style: TextStyle(color: TColor.black,
+                          fontSize: 12 ,
+                              fontWeight: FontWeight.w700),
+                                ),
+                       
+                                 ShaderMask(
+                                blendMode: BlendMode.srcIn,
+                                shaderCallback: (bounds) {
+                                 return LinearGradient(
+                                  colors: TColor.primaryGrad, 
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight)
+                                  .createShader(Rect.fromLTRB(0, 0, bounds.width, bounds.height));
+                                },
+                                child:
+                                        Text(
+                                          "760 kCal",
+                                          style: TextStyle(color: TColor.black.withOpacity(0.7),
+                                          fontSize: 14, 
+                                          fontWeight: FontWeight.w700),
+                                      ),
+                                  ),
+                                  
+                                  ]),
                     ),
                       ],
                     ),
