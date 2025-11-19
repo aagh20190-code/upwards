@@ -2,6 +2,7 @@ import 'package:dotted_dashed_line/dotted_dashed_line.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/common_widget/round_button.dart';
 
@@ -590,7 +591,7 @@ class _HomeViewState extends State<HomeView> {
                                       ),
                                   ), 
 
-                                  ,
+                                  const Spacer(),
                                   Image.asset("assets/img/Sleep-Graph.png",
                                   width: double.maxFinite,
                                   fit: BoxFit.fitWidth), 
@@ -635,6 +636,45 @@ class _HomeViewState extends State<HomeView> {
                                           fontSize: 14, 
                                           fontWeight: FontWeight.w700),
                                       ),
+                                  ),
+
+                                  const Spacer(),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: SizedBox(
+                                      width: media.width*0.2,
+                                      height: media.width*0.2,
+                                      child: Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                          Container(
+                                            width: media.width*0.15,
+                                            height: media.width*0.15,
+                                            alignment: Alignment.center,
+                                          decoration:   BoxDecoration(gradient: LinearGradient(colors: TColor.primaryGrad),
+                                            borderRadius: BorderRadius.circular(media.width*0.075),),
+                                            child: FittedBox(
+                                              child: Text(
+                                                "250 kCal\nleft",
+                                                textAlign: TextAlign.center
+                                                ,style: TextStyle(
+                                                  color: TColor.white.withOpacity(0.7),
+                                                  
+                                                  fontSize: 10
+                                                ),),
+                                            ),
+                                          ),
+                                          SimpleCircularProgressBar(
+                                            progressStrokeWidth: 10,
+                                            backStrokeWidth: 10,
+                                              startAngle: -180,
+                                              backColor: Colors.grey.shade100,
+                                              progressColors:TColor.primaryGrad,
+                                              valueNotifier: ValueNotifier(50),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                   
                                   ]),
