@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/common_widget/tab_button.dart';
+import 'package:upwards2/view/home/activity_tracker_view.dart';
 import 'package:upwards2/view/home/blankView.dart';
 import 'package:upwards2/view/home/home_view.dart';
 
@@ -73,7 +74,7 @@ class _MainTabViewState extends State<MainTabView> {
                    selectIcon: "assets/img/acitivity2.png",
                    isActive: selectTab==1, onTap: () {
                   selectTab=1;
-                  currentTab = const Blankview();
+                  currentTab = const ActivityTrackerView();
                   if(mounted){
                      setState(() {
                     
