@@ -52,7 +52,9 @@ class _ActivityTrackerViewState extends State<ActivityTrackerView> {
               width: 15,
               height: 15,
               fit: BoxFit.contain,
+              
             ),
+            
           ),
         ),
         title: Text(
@@ -62,7 +64,9 @@ class _ActivityTrackerViewState extends State<ActivityTrackerView> {
         ),
         actions: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              
+            },
             child: Container(
               margin: const EdgeInsets.all(8),
               height: 40,

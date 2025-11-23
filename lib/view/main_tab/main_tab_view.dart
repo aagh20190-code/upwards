@@ -4,6 +4,8 @@ import 'package:upwards2/common_widget/tab_button.dart';
 import 'package:upwards2/view/home/activity_tracker_view.dart';
 import 'package:upwards2/view/home/blankView.dart';
 import 'package:upwards2/view/home/home_view.dart';
+import 'package:upwards2/view/profile/profile_view.dart';
+import 'package:upwards2/view/workout_tracker/workout_tracker_view.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -31,6 +33,7 @@ class _MainTabViewState extends State<MainTabView> {
                       width: 65,
                       height: 65,
                       decoration: BoxDecoration(
+                        // color: TColor.white,
                         gradient: LinearGradient(colors: TColor.primaryGrad),
                         borderRadius: BorderRadius.circular(35),
                         boxShadow: const [
@@ -74,7 +77,7 @@ class _MainTabViewState extends State<MainTabView> {
                    selectIcon: "assets/img/acitivity2.png",
                    isActive: selectTab==1, onTap: () {
                   selectTab=1;
-                  currentTab = const ActivityTrackerView();
+                  currentTab = const WorkoutTrackerView();
                   if(mounted){
                      setState(() {
                     
@@ -106,7 +109,7 @@ class _MainTabViewState extends State<MainTabView> {
                    selectIcon: "assets/img/user2.png",
                    isActive: selectTab==3, onTap: () {
                   selectTab=3;
-                  currentTab = const Blankview();
+                  currentTab = const ProfileView();
                   if(mounted){
                      setState(() {
                     

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "863112317348",
+    "project_id": "upwards-12c78",
+    "storage_bucket": "upwards-12c78.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863112317348:android:64aa7178e5f855ce329931",
+        "android_client_info": {
+          "package_name": "com.aniket.upwards2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7IRy1QGucCTIh9b7stE_TmtJEGM3hpso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

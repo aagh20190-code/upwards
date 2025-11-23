@@ -6,6 +6,7 @@ import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'package:upwards2/common/colo_extension.dart';
 import 'package:upwards2/common_widget/round_button.dart';
 import 'package:upwards2/common_widget/workout_row.dart';
+import 'package:upwards2/view/home/activity_tracker_view.dart';
 import 'package:upwards2/view/home/finished_workout_view.dart';
 import 'package:upwards2/view/home/notification_view.dart';
 
@@ -278,10 +279,16 @@ class _HomeViewState extends State<HomeView> {
                                               type: RoundButtonType.bgGradient,
                                               fontSize: 12,
                                               fontWeight: FontWeight.w400,
-                                              onPressed: (){},
-                                              )
-                                              )
- 
+                                              onPressed: (){
+                             Navigator.push(
+                             context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                 const ActivityTrackerView(),
+                         ),
+                       );                                            },
+                     )
+                   )
                 ],
               ),
             ),
@@ -836,23 +843,22 @@ class _HomeViewState extends State<HomeView> {
                                          },
                                        ),
                                      ),
-                                     lineBarsData: lineBarsData1,
-                                     minY: -0.5,
-                                     maxY: 110,
-                                     titlesData: FlTitlesData(
-                                     show: true,
-                                     leftTitles: AxisTitles(),
-                                     topTitles: AxisTitles(),
-                                     bottomTitles: AxisTitles(
-                                      sideTitles: bottomTitles
-                                     ) ,
+                               lineBarsData: lineBarsData1,
+                               minY: -0.5,
+                               maxY: 110,
+                              titlesData: FlTitlesData(
+                             show: true,
+                            leftTitles: AxisTitles(),
+                           topTitles: AxisTitles(),
+                         bottomTitles: AxisTitles(
+                        sideTitles: bottomTitles
+                     ) ,
 
-                                     rightTitles: AxisTitles(
-                                      sideTitles: rightTitles
-                                     ) 
-                                     
-                                     ),
-                                     gridData:  FlGridData(
+                  rightTitles: AxisTitles(
+              sideTitles: rightTitles
+                   )                    
+              ),
+           gridData:  FlGridData(
         show: true,
         drawHorizontalLine: true,
        
@@ -865,14 +871,15 @@ class _HomeViewState extends State<HomeView> {
           );
         },
       ),
-                                     borderData: FlBorderData(
-                                       show: true,
-                                       border: Border.all(
-                                         color: Colors.transparent,
-                                       ),
-                                     ),
-                                   ),
-                                 ),),
+      borderData: FlBorderData(
+         show: true,
+         border: Border.all(
+         color: Colors.transparent,
+         ),
+       ),
+     ),
+   ),
+  ),
               
 
               SizedBox(
@@ -967,6 +974,12 @@ class _HomeViewState extends State<HomeView> {
       },
     );
   }
+  LineTouchData get lineTouchData1 => LineTouchData(
+    handleBuiltInTouches: true,
+    touchTooltipData: LineTouchTooltipData(
+       getTooltipColor: (touchedSpot) => TColor.secondaryColor1,
+    ),
+  );
   
 
     List<LineChartBarData> get lineBarsData1 => [
