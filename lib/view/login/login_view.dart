@@ -31,7 +31,7 @@ class _LoginViewState extends State<LoginView> {
     super.dispose();
   }
 
-  // 3. Login Logic
+  //lofin function
  Future<void> loginUser() async {
   if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -44,15 +44,15 @@ class _LoginViewState extends State<LoginView> {
   });
 
   try {
-    // 1. Perform Login
+    // login section , firebase theke access
     UserCredential userCredential =
         await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _emailController.text.trim(),
           password: _passwordController.text.trim(),
     );
 
-    // 2. CHECK THE DATABASE
-    // We check if the user has already completed their profile
+    
+    // ekhane check korbo user ki prfile complete korse?
     DocumentSnapshot userDoc = await FirebaseFirestore.instance
         .collection('users')
         .doc(userCredential.user!.uid)
@@ -96,7 +96,7 @@ class _LoginViewState extends State<LoginView> {
 
 
 
-  // 4. Bonus: Forgot Password Logic
+  //Forgot Password Logic
   Future<void> forgotPassword() async {
     if (_emailController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
