@@ -1383,6 +1383,8 @@ class _HomeViewState extends State<HomeView> {
       meta: meta,
       space: 10,
       child: text,
+
+      
     );
   }
 }
