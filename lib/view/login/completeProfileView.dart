@@ -260,7 +260,7 @@ class _CompleteprofileviewState extends State<Completeprofileview> {
                                     colors: TColor.secondaryGrad),
                                 borderRadius: BorderRadius.circular(15)),
                             child: Text(
-                              "CM",
+                              "INC",
                               style:
                                   TextStyle(color: TColor.white, fontSize: 12),
                             ),
