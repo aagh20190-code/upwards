@@ -229,10 +229,10 @@ class _HomeViewState extends State<HomeView> {
   }
 
 
-  // --- CHART DATA VARIABLES ---
+  // ---heart rate data---
   List<int> showingTooltipOnSpots = [21];
   List<FlSpot> get allSpots => const [
-        FlSpot(0, 20), FlSpot(1, 25), FlSpot(2, 40), FlSpot(3, 50),
+        FlSpot(0, 40), FlSpot(1, 25), FlSpot(2, 40), FlSpot(3, 50),
         FlSpot(4, 35), FlSpot(5, 40), FlSpot(6, 30), FlSpot(7, 20),
         FlSpot(8, 25), FlSpot(9, 40), FlSpot(10, 50), FlSpot(11, 35),
         FlSpot(12, 50), FlSpot(13, 60), FlSpot(14, 40), FlSpot(15, 50),
@@ -1384,7 +1384,7 @@ class _HomeViewState extends State<HomeView> {
       space: 10,
       child: text,
 
-      
+
     );
   }
 }
